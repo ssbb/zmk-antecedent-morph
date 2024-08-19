@@ -85,10 +85,10 @@ example,
             compatible = "zmk,behavior-antecedent-morph";
             label = "ADAPTIVE_A";
             #binding-cells = <0>;
-			defaults = <&kp A>;
+            defaults = <&kp A>;
             bindings = <&kp U>, <&kp O>;
-			antecedents = <RA(Y) Z>;
-			max-delay-ms = <250>;
+            antecedents = <RA(Y) Z>;
+            max-delay-ms = <250>;
         };
     };
 };
@@ -122,10 +122,10 @@ is bound to `&kp DEAD_ANTE`, then it does not print anything, but still turns a 
             compatible = "zmk,behavior-antecedent-morph";
             label = "ADAPTIVE_A";
             #binding-cells = <0>;
-			defaults = <&kp A>;
+            defaults = <&kp A>;
             bindings = <&kp U>, <&kp O>;
-			antecedents = <DEAD_ANTE Z>;
-			max-delay-ms = <250>;
+            antecedents = <DEAD_ANTE Z>;
+            max-delay-ms = <250>;
         };
     };
 };
