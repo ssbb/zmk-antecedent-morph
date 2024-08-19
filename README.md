@@ -44,10 +44,10 @@ If the key A is assigned the behavior `&ad_a` defined as follows, for example,
             compatible = "zmk,behavior-antecedent-morph";
             label = "ADAPTIVE_A";
             #binding-cells = <0>;
-			defaults = <&kp A>;
+            defaults = <&kp A>;
             bindings = <&kp U>, <&kp O>;
-			antecedents = <Q Z>;
-			max-delay-ms = <250>;
+            antecedents = <Q Z>;
+            max-delay-ms = <250>;
         };
     };
 };
