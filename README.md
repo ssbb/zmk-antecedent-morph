@@ -31,11 +31,7 @@ manifest:
 
 ## Configuration
 
-The configuration of the behavior consists of an array of `antecedents`, key codes with implicit modifiers, as well as
-of a delay `max-delay-ms` in milli-seconds. If none of the `antecedents` was released during the `max-delay-ms` before
-the antecedent-morph behavior is pressed, the behavior invokes the `defaults` binding. If, however, the `n`-th of the
-key codes (with implicit modifiers) listed in the array `antecedents` was released within `max-delay-ms`, the behavior
-invokes the `n`-th of the bindings of the `bindings` property.
+The configuration of the behavior consists of an array of `antecedents` which consist of keycodes including [implicit modifiers](https://zmk.dev/docs/codes/modifiers), as well as a delay `max-delay-ms` in milliseconds. If none of the `antecedents` were released during the `max-delay-ms` before the antecedent-morph behavior is pressed, the behavior invokes the `defaults` binding. If, however, the `n`-th of the keycodes (with implicit modifiers) listed in the array `antecedents` was released within `max-delay-ms`, the behavior invokes the `n`-th binding in the `bindings` property.
 
 ### Configuration
 
