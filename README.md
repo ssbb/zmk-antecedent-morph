@@ -14,7 +14,7 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: urob
+    - name: ssbb
       url-base: https://github.com/ssbb
   projects:
     - name: zmk
