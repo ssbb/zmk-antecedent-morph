@@ -129,3 +129,5 @@ is bound to `&kp DEAD_ANTE`, then it does not print anything, but still turns a 
     };
 };
 ```
+
+Dead keys can be retained using the `ZMK_ANTECEDENT_MORPH_DISCARD_DEAD_ANTECEDENTS=n` configuration option.

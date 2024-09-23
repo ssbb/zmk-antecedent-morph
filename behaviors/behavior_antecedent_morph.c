@@ -84,8 +84,12 @@ static int antecedent_morph_keycode_state_changed_listener(const zmk_event_t *eh
     }
 
     if (ev->keycode > 0xff) {
+#if IS_ENABLED(CONFIG_ZMK_ANTECEDENT_MORPH_DISCARD_DEAD_ANTECEDENTS)
         LOG_DBG("event dropped");
         return (ZMK_EV_EVENT_HANDLED);
+#else
+        return (ZMK_EV_EVENT_BUBBLE);
+#endif
     } else {
         return (ZMK_EV_EVENT_BUBBLE);
     }
