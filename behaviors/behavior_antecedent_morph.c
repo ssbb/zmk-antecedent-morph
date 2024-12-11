@@ -105,11 +105,12 @@ static int on_antecedent_morph_binding_pressed(struct zmk_behavior_binding *bind
     const struct behavior_antecedent_morph_config *cfg = dev->config;
     struct behavior_antecedent_morph_data *data = dev->data;
     int morph = -1;
+    uint32_t delay_ms =
+        ((event.timestamp - time_pressed) < 0) ? 0 : (uint32_t)(event.timestamp - time_pressed);
 
     LOG_DBG("press zmk,behavior-antecedent-morph serial no. %d when <code_pressed> is 0x%08x; "
             "delay %dms; and explicit_mods 0x%02x",
-            cfg->serial, code_pressed, (int32_t)(event.timestamp - time_pressed),
-            zmk_hid_get_explicit_mods());
+            cfg->serial, code_pressed, delay_ms, zmk_hid_get_explicit_mods());
 
     if (data->pressed_binding != NULL) {
         LOG_ERR("Can't press the same antecedent-morph twice");
@@ -122,7 +123,7 @@ static int on_antecedent_morph_binding_pressed(struct zmk_behavior_binding *bind
         }
     }
 
-    if ((morph >= 0) && ((int32_t)(event.timestamp - time_pressed)) < cfg->max_delay_ms) {
+    if ((morph >= 0) && delay_ms < cfg->max_delay_ms) {
 
         // If the the delay between the most recent key release and the pressing of the current
         // behavior is less than the configured maximum delay and if the most recently released key
@@ -142,7 +143,6 @@ static int on_antecedent_morph_binding_pressed(struct zmk_behavior_binding *bind
         }
 
     } else {
-
         // Otherwise, issue the first behavior of the 'defaults' array.
 
         if (0 < cfg->defaults_len) {
